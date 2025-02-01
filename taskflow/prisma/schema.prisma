@@ -30,6 +30,7 @@ model Task {
   priority    String   @default("Medium")
   assignedTo  User?    @relation(fields: [userId], references: [id])
   userId      String?
+  dueDate     DateTime?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
