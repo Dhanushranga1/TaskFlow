@@ -22,7 +22,7 @@ export const authOptions = {
           where: { email: credentials.email },
         });
 
-        if (!user || !bcrypt.compareSync(credentials.password, user.password)) {
+        if (!user || !user.password || !bcrypt.compareSync(credentials.password, user.password)) {
           throw new Error("Invalid credentials");
         }
 
